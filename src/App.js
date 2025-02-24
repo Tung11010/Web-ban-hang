@@ -4,7 +4,8 @@ import Home from './pages/Home'; // Không dùng {} vì Home được export m�
 import SalesProducts from './pages/SalesProducts';
 import News from './pages/News';
 import ShoppingCart from './pages/ShoppingCart';
-
+import Signup from './pages/auth/Signup';
+import Login from './pages/auth/Login';
 
 function App() {
     return (
@@ -14,6 +15,8 @@ function App() {
                 <Route path="/sale" element={<SalesProducts />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/cart" element={<ShoppingCart />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </Router>
     );
