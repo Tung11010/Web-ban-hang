@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -10,7 +11,12 @@ const Signup = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('User Registered:', formData);
+        
+        // Lưu tài khoản vào localStorage
+        localStorage.setItem("registeredUser", JSON.stringify(formData));
+        
+        alert("Account created successfully! Please login.");
+        navigate("/login");
     };
 
     return (
@@ -23,7 +29,6 @@ const Signup = () => {
                     <input type="password" name="password" placeholder="Password" className="w-full p-2 border rounded mb-3" onChange={handleChange} required />
                     <button type="submit" className="w-full bg-red-500 text-white p-2 rounded">Sign Up</button>
                 </form>
-                <p className="mt-4 text-center">Already have an account? <Link to="/login" className="text-red-500">Login</Link></p>
             </div>
         </div>
     );

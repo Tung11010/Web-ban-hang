@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home'; // Không dùng {} vì Home được export mặc định
+import Home from './pages/Home';
 import SalesProducts from './pages/SalesProducts';
 import News from './pages/News';
 import ShoppingCart from './pages/ShoppingCart';
 import Signup from './pages/auth/Signup';
 import Login from './pages/auth/Login';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
     return (
@@ -17,6 +19,11 @@ function App() {
                 <Route path="/cart" element={<ShoppingCart />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/admin" element={
+                    <PrivateRoute>
+                        <AdminDashboard />
+                    </PrivateRoute>
+                } />
             </Routes>
         </Router>
     );
