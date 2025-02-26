@@ -1,4 +1,3 @@
-// src/pages/auth/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,19 +30,55 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(customerUser));
             navigate("/");
         } else {
-            alert("Invalid username or password!");
+            alert("Tài khoản hoặc mật khẩu không đúng!");
         }
     };
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
-            <div className="bg-white p-6 rounded-lg shadow-md w-96">
-                <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
+            <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold text-center mb-4">Đăng nhập</h2>
+                
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="username" placeholder="Username" className="w-full p-2 border rounded mb-3" onChange={handleChange} required />
-                    <input type="password" name="password" placeholder="Password" className="w-full p-2 border rounded mb-3" onChange={handleChange} required />
-                    <button type="submit" className="w-full bg-red-500 text-white p-2 rounded">Login</button>
+                    <input 
+                        type="text" 
+                        name="username" 
+                        placeholder="Tên đăng nhập" 
+                        className="w-full p-2 border rounded mb-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500" 
+                        onChange={handleChange} 
+                        required 
+                    />
+                    <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Mật khẩu" 
+                        className="w-full p-2 border rounded mb-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500" 
+                        onChange={handleChange} 
+                        required 
+                    />
+
+                    <div className="text-right mb-3">
+                        <a href="#" className="text-sm text-gray-500 hover:text-red-500">Quên mật khẩu?</a>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        className="w-full bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition duration-300"
+                    >
+                        Đăng nhập
+                    </button>
                 </form>
+
+                {/* Chưa có tài khoản? Đăng ký ngay */}
+                <p className="text-center text-gray-600 mt-4">
+                    Chưa có tài khoản?{" "}
+                    <a 
+                        href="/signup" 
+                        className="text-red-500 font-semibold hover:underline"
+                    >
+                        Đăng ký ngay
+                    </a>
+                </p>
             </div>
         </div>
     );

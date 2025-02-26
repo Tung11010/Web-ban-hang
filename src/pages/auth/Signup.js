@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Signup = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
@@ -9,14 +10,20 @@ const Signup = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        // Lưu tài khoản vào localStorage
-        localStorage.setItem("registeredUser", JSON.stringify(formData));
-        
-        alert("Account created successfully! Please login.");
-        navigate("/login");
+        try {
+            const response = await axios.post("http://localhost/backend/register.php", formData);
+            if (response.data.success) {
+                alert("Account created successfully! Please login.");
+                navigate("/login");
+            } else {
+                alert(response.data.message);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to register.");
+        }
     };
 
     return (

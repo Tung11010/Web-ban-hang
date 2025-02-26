@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const News = () => {
     const latestNews = [
-        { id: 1, title: "Make delicious dried lemon chicken at home", date: "1/12/2023", img: "images/news1.jpg" },
-        { id: 2, title: "MewFood new phenomenon of \"Dried Chicken with Lemon Leaves\"", date: "5/12/2023", img: "images/news2.jpg" },
-        { id: 3, title: "How to choose fresh vegetables, tubers, and fruits that don't 'suck'", date: "9/12/2023", img: "images/news3.jpg" }
+        { id: 1, title: "Make delicious dried lemon chicken at home", date: "1/12/2023", img: "/new1.png" },
+        { id: 2, title: "MewFood new phenomenon of \"Dried Chicken with Lemon Leaves\"", date: "5/12/2023", img: "/new2.png" },
+        { id: 3, title: "How to choose fresh vegetables, tubers, and fruits that don't 'suck'", date: "9/12/2023", img: "/new3.png" }
     ];
 
     const featuredNews = [
-        { id: 4, title: "MewFood new phenomenon of \"Dried Chicken with Lemon Leaves\"", date: "16/05/2023", img: "images/news2.jpg", description: "Dried Chicken with Lemon Leaves retains the toughness and sweetness of each meat fiber without breaking. Prices are based on three types." },
-        { id: 5, title: "How to choose fresh vegetables, tubers, and fruits that are not 'poisoned'", date: "16/05/2024", img: "images/news3.jpg", description: "Learn how to pick the freshest and safest vegetables and fruits." },
-        { id: 6, title: "Does eating a hamburger benefit your health?", date: "16/05/2024", img: "images/news4.jpg", description: "Hamburgers contain proteins and vitamins, helping to maintain energy levels." }
+        { id: 4, title: "MewFood new phenomenon of \"Dried Chicken with Lemon Leaves\"", date: "16/05/2023", img: "/new1.png", description: "Dried Chicken with Lemon Leaves retains the toughness and sweetness of each meat fiber without breaking. Prices are based on three types." },
+        { id: 5, title: "How to choose fresh vegetables, tubers, and fruits that are not 'poisoned'", date: "16/05/2024", img: "/new2.png", description: "Learn how to pick the freshest and safest vegetables and fruits." },
+        { id: 6, title: "Does eating a hamburger benefit your health?", date: "16/05/2024", img: "/new3.png", description: "Hamburgers contain proteins and vitamins, helping to maintain energy levels." }
     ];
 
     return (
@@ -43,7 +43,7 @@ const News = () => {
 
             {/* Banner Section */}
             <div className="relative w-full h-80">
-                <img src="images/news-banner.jpg" alt="News Banner" className="w-full h-full object-cover" />
+                <img src="/image.png" alt="News Banner" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
                     <h1 className="text-4xl font-bold text-red-500">PRODUCT PORTFOLIO</h1>
                     <p className="text-lg">Home page</p>

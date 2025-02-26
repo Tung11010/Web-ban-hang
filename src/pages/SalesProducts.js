@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const SalesProducts = () => {
     const products = [
-        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", discount: "-6%", img: "images/sanpham1.png" },
-        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", discount: "", img: "images/sanpham2.jpg" },
-        { id: 3, name: "Kimchi fried rice", price: "250.000đ", discount: "-11%", img: "images/sanpham3.png" },
-        { id: 4, name: "Bibimbap", price: "280.000đ", discount: "-13%", img: "images/sanpham4.png" },
-        { id: 5, name: "Chicken thighs fried in butter", price: "60.000đ", discount: "-6%", img: "images/sanpham1.png" },
-        { id: 6, name: "Spicy cheese grilled chicken rice", price: "65.000đ", discount: "", img: "images/sanpham2.jpg" },
-        { id: 7, name: "Kimchi fried rice", price: "250.000đ", discount: "-11%", img: "images/sanpham3.png" },
-        { id: 8, name: "Bibimbap", price: "280.000đ", discount: "-13%", img: "images/sanpham4.png" }
+        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", discount: "-6%", img: "/image1.png" },
+        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", discount: "", img: "/image2.png" },
+        { id: 3, name: "Kimchi fried rice", price: "250.000đ", discount: "-11%", img: "/image3.png" },
+        { id: 4, name: "Bibimbap", price: "280.000đ", discount: "-13%", img: "/image4.png" },
+        { id: 5, name: "Chicken thighs fried in butter", price: "60.000đ", discount: "-6%", img: "/image5.png" },
+        { id: 6, name: "Spicy cheese grilled chicken rice", price: "65.000đ", discount: "", img: "/image6.png" },
+        { id: 7, name: "Kimchi fried rice", price: "250.000đ", discount: "-11%", img: "/image7.png" },
+        { id: 8, name: "Bibimbap", price: "280.000đ", discount: "-13%", img: "/image8.png" }
     ];
 
     return (
@@ -44,7 +44,7 @@ const SalesProducts = () => {
             {/* Banner Section */}
             <div className="relative w-full h-80">
                 <img 
-                    src="images/featured-banner.jpg" 
+                    src="/image.png" 
                     alt="Featured Products" 
                     className="w-full h-full object-cover"
                 />

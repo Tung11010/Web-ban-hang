@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const ShoppingCart = () => {
     const [cart, setCart] = useState([
-        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", img: "images/sanpham1.png", quantity: 1 },
-        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", img: "images/sanpham2.jpg", quantity: 1 },
-        { id: 3, name: "Kimchi fried rice", price: "250.000đ", img: "images/sanpham3.png", quantity: 1 },
-        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", img: "images/sanpham1.png", quantity: 1 },
-        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", img: "images/sanpham2.jpg", quantity: 1 },
-        { id: 3, name: "Kimchi fried rice", price: "250.000đ", img: "images/sanpham3.png", quantity: 1 },
-        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", img: "images/sanpham1.png", quantity: 1 },
-        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", img: "images/sanpham2.jpg", quantity: 1 },
-        { id: 3, name: "Kimchi fried rice", price: "250.000đ", img: "images/sanpham3.png", quantity: 1 }
+        { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", img: "/image1.png", quantity: 1 },
+        { id: 2, name: "Spicy cheese grilled chicken rice", price: "65.000đ", img: "/image2.png", quantity: 1 },
+        { id: 3, name: "Kimchi fried rice", price: "250.000đ", img: "/image3.png", quantity: 1 },
+        { id: 4, name: "Bibimbap", price: "280.000đ", img: "/image4.png", quantity: 1 },
+        { id: 5, name: "Beef steak with fries", price: "300.000đ", img: "/image5.png", quantity: 1 },
+        { id: 6, name: "Salmon sashimi", price: "350.000đ", img: "/image6.png", quantity: 1 },
+        { id: 7, name: "Fried chicken combo", price: "120.000đ", img: "/image7.png", quantity: 1 },
+        { id: 8, name: "Seafood pasta", price: "270.000đ", img: "/image8.png", quantity: 1 },
+        { id: 9, name: "Vegetarian sushi rolls", price: "150.000đ", img: "/image9.png", quantity: 1 }
     ]);
 
     const increaseQuantity = (id) => {
@@ -55,7 +55,7 @@ const ShoppingCart = () => {
 
             {/* Banner Section */}
             <div className="relative w-full h-80">
-                <img src="images/cart-banner.jpg" alt="Shopping Cart" className="w-full h-full object-cover" />
+                <img src="/image.png" alt="Shopping Cart" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
                     <h1 className="text-4xl font-bold text-red-500">Your Shopping Cart</h1>
                 </div>
