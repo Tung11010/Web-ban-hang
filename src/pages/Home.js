@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
-
+import SaleSection from '../components/SaleSection';
 const Home = () => {
     const [cartCount, setCartCount] = useState(0);
 
@@ -65,7 +65,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
+            {/* SaleSection - Products On Sale */}
+            <SaleSection />  {/* Add SaleSection here */}
             {/* Product List */}
             <div className="p-6">
                 <h2 className="text-2xl font-bold text-center">Products On Sale</h2>
