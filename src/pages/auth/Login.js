@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [formData, setFormData] = useState({ email: '', password: '' });
+    const [formData, setFormData] = useState({ email: "", password: "" });
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -12,40 +12,30 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Debug: Kiểm tra dữ liệu trước khi gửi
-        console.log("🔹 Login Data gửi đi:", formData);
+        setLoading(true);
 
         try {
-            const response = await axios.post("http://localhost/backend/login.php", formData, {
-                headers: { "Content-Type": "application/json" }
+            const response = await fetch("http://localhost:5000/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
-            // Debug: Kiểm tra phản hồi từ API
-            console.log("✅ API Response:", response.data);
+            const data = await response.json();
+            console.log("✅ API Response:", data);
 
-            if (response.data.success) {
+            if (response.ok) {
+                localStorage.setItem("token", data.token); // Lưu token vào localStorage
                 alert("🎉 Login successful!");
-                localStorage.setItem("user", JSON.stringify(response.data.user)); // Lưu user vào localStorage
                 navigate("/"); // Chuyển hướng đến trang Home.js
             } else {
-                alert("❌ Login failed: " + response.data.message);
+                alert("❌ Login failed: " + data.message);
             }
         } catch (error) {
-            console.error("🚨 Lỗi đăng nhập:", error);
-
-            if (error.response) {
-                // Lỗi từ API (HTTP Response có lỗi)
-                console.log("🔴 Lỗi phản hồi từ server:", error.response.data);
-                alert("❌ Login failed: " + (error.response.data.message || "Server error."));
-            } else if (error.request) {
-                // Lỗi khi không thể kết nối đến API
-                console.log("⚠️ Không thể kết nối tới API:", error.request);
-                alert("🚨 Cannot connect to the server. Check if backend is running.");
-            } else {
-                // Lỗi không xác định
-                alert("⚠️ Unexpected error occurred. Check console for details.");
-            }
+            console.error("🚨 Login error:", error);
+            alert("🚨 Cannot connect to the server. Check if backend is running.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -70,7 +60,13 @@ const Login = () => {
                         onChange={handleChange}
                         required
                     />
-                    <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition">Login</button>
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+                        disabled={loading}
+                    >
+                        {loading ? "Logging in..." : "Login"}
+                    </button>
                 </form>
             </div>
         </div>

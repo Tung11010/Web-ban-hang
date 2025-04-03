@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [formData, setFormData] = useState({ username: "", email: "", password: "" });
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -12,25 +12,29 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Kiểm tra dữ liệu form gửi đi
-        console.log("Form data:", formData);
+        setLoading(true);
 
         try {
-            const response = await axios.post("http://localhost/backend/register.php", formData);
+            const response = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-            // Debug phản hồi trả về từ backend
-            console.log("API Response:", response.data);
+            const data = await response.json();
+            console.log("API Response:", data);
 
-            if (response.data.success) {
+            if (response.ok) {
                 alert("Account created successfully! Please login.");
                 navigate("/login");
             } else {
-                alert("Registration failed: " + response.data.message);
+                alert("Registration failed: " + data.message);
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("Failed to register. Check console for details.");
+            alert("Failed to register. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -63,7 +67,13 @@ const Signup = () => {
                         onChange={handleChange}
                         required
                     />
-                    <button type="submit" className="w-full bg-red-500 text-white p-2 rounded">Sign Up</button>
+                    <button
+                        type="submit"
+                        className="w-full bg-red-500 text-white p-2 rounded"
+                        disabled={loading}
+                    >
+                        {loading ? "Signing Up..." : "Sign Up"}
+                    </button>
                 </form>
             </div>
         </div>
