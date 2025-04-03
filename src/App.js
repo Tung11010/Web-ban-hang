@@ -9,6 +9,7 @@ import Login from './pages/auth/Login';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import PrivateRoute from './routes/PrivateRoute';
 
+
 function App() {
     return (
         <Router>

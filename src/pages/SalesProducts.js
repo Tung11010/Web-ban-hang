@@ -1,7 +1,7 @@
 // src/pages/SalesProducts.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Footer from '../components/Footer';
 const SalesProducts = () => {
     const products = [
         { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", discount: "-6%", img: "/image1.png" },
@@ -75,7 +75,10 @@ const SalesProducts = () => {
                     ))}
                 </div>
             </div>
+        {/* Footer Section */}
+        <Footer /> {/* Thêm footer vào cuối trang */}
         </div>
+        
     );
 };
 

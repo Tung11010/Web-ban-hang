@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import Footer from '../components/Footer'; 
 const ShoppingCart = () => {
     const [cart, setCart] = useState([
         { id: 1, name: "Chicken thighs fried in butter", price: "60.000đ", img: "/image1.png", quantity: 1 },
@@ -83,6 +83,9 @@ const ShoppingCart = () => {
                     </div>
                 )}
             </div>
+       
+        {/* Footer Section */}
+        <Footer /> {/* Thêm footer vào cuối trang */}
         </div>
     );
 };
