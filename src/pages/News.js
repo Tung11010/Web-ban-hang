@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer'; // Import Footer
 
 const News = () => {
     const latestNews = [
@@ -82,6 +83,9 @@ const News = () => {
                     ))}
                 </div>
             </div>
+
+            {/* Footer Section */}
+            <Footer /> {/* Thêm footer vào cuối trang */}
         </div>
     );
 };
